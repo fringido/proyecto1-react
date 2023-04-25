@@ -3,7 +3,7 @@ import './TodoCounter.css'
 function TodoCounter(props) {
     const {totalTodos, completeTodos} = props
     return(
-        <h2 className="TodoCounter">{`Has completado ${completeTodos} TODO de ${totalTodos}`}</h2>
+        <h2 className="TodoCounter">{`Has completado ${completeTodos} TO DO de ${totalTodos}`}</h2>
     )
 }
 
