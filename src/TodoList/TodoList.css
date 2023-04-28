@@ -1,0 +1,43 @@
+.container-todo {
+    display        : flex;
+    margin-top     : .5rem;
+    border-radius  : 20px;
+    background     : #212121;
+    box-shadow     : 5px 5px 15px 7px rgb(25, 25, 25), -3px -2px 4px 5px rgb(60, 60, 60);
+    height         : 100%;
+    padding        : 15px;
+    overflow       : auto;
+    width          : 100%;
+    align-items    : stretch;
+    justify-content: flex-start;
+    flex-direction : column;
+}
+
+/* Estilos para motores Webkit y blink (Chrome, Safari, Opera... )*/
+
+.container-todo::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.container-todo::-webkit-scrollbar:vertical {
+    width: 5px;
+}
+
+.container-todo::-webkit-scrollbar-button:increment,
+.container-todo::-webkit-scrollbar-button {
+    display: none;
+}
+
+.container-todo::-webkit-scrollbar:horizontal {
+    height: 5px;
+}
+
+.container-todo::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(163deg, #fc5cb7 0%, #3700ff 100%);
+    border-radius   : 20px;
+    border          : none;
+}
+
+.container-todo::-webkit-scrollbar-track {
+    border-radius: 10px;
+}

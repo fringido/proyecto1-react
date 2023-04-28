@@ -10,7 +10,7 @@ function TodoItem(props) {
             >
         √
       </span>           
-       <p>{props.text}</p>
+       <p>{props.texto}</p>
             <span className="delete"
             onClick={props.onDelete }
             >X</span>

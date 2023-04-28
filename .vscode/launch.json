@@ -5,9 +5,9 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "chrome",
+            "name": "Launch Edge",
             "request": "launch",
-            "name": "Iniciar Microsoft Edge para localhost",
+            "type": "pwa-msedge",
             "url": "http://localhost:3000",
             "webRoot": "${workspaceFolder}"
         },
@@ -18,7 +18,7 @@
             "runtimeArgs": [
                 "--remote-debugging-port=9222"
             ],
-            "url": "c:\\Users\\mmaax\\.vscode\\extensions\\ms-edgedevtools.vscode-edge-devtools-2.1.1\\out\\startpage\\index.html",
+            "url": "http://localhost:3000",
             "presentation": {
                 "hidden": true
             }
@@ -31,7 +31,7 @@
                 "--headless",
                 "--remote-debugging-port=9222"
             ],
-            "url": "c:\\Users\\mmaax\\.vscode\\extensions\\ms-edgedevtools.vscode-edge-devtools-2.1.1\\out\\startpage\\index.html",
+            "url": "http://localhost:3000",
             "presentation": {
                 "hidden": true
             }
@@ -40,7 +40,7 @@
             "type": "vscode-edge-devtools.debug",
             "name": "Open Edge DevTools",
             "request": "attach",
-            "url": "c:\\Users\\mmaax\\.vscode\\extensions\\ms-edgedevtools.vscode-edge-devtools-2.1.1\\out\\startpage\\index.html",
+            "url": "http://localhost:3000",
             "presentation": {
                 "hidden": true
             }
