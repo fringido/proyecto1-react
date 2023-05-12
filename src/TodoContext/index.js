@@ -1,83 +1,81 @@
-import React from "react";
-import { useLocalStorage } from "./useLocalStorage";
+  import React from "react";
+  import { useLocalStorage } from "../App/useLocalStorage";
 
-const TodoContext = React.createContext();
+  const TodoContext = React.createContext();
 
-function TodoProvider(props) {
-	const {
-		item: todo,
-		saveItem: saveTodos,
-		loading,
-		error,
-	} = useLocalStorage("TODOS_V1", []);
-	// const [todo, setTodos] = React.useState(defaultTodo);
-	const [searchState, setSearchState] = React.useState("");
-	const [openModal, setOpenModal] = React.useState(false)
-	const [addState, setAddState] = React.useState('')
-    
-	const completeTodos = todo.filter((todo) => !!todo.completado).length;
-	
-    const totalTodos = todo.length;
+  function TodoProvider(props) {
+    const {
+      item: todo,
+      saveItem: saveTodos,
+      loading,
+    error,
+  } = useLocalStorage("TODOS_V1", []);
+  // const [todo, setTodos] = React.useState(defaultTodo);
+  const [searchState, setSearchState] = React.useState("");
+  const [openModal, setOpenModal] = React.useState(false)
 
-	let searchTodo = [];
+  const completeTodos = todo.filter((todo) => !!todo.completado).length;
 
-	if (!searchState.length >= 1) {
-		searchTodo = todo;
-	} else {
-		searchTodo = todo.filter((todo) => {
-			const todoText = todo.texto.toLowerCase();
-			const serchText = searchState.toLowerCase();
+  const totalTodos = todo.length;
 
-			return todoText.includes(serchText);
-		});
-	}
+  let searchTodo = [];
 
-	const checkTodo = (text) => {
-		const newTodo = [...todo];
-		const indext = todo.findIndex((d) => d.texto === text);
-		newTodo[indext].completado = true;
-		saveTodos(newTodo);
-	};
+  if (!searchState.length >= 1) {
+    searchTodo = todo;
+  } else {
+    searchTodo = todo.filter((todo) => {
+      const todoText = todo.texto.toLowerCase();
+      const serchText = searchState.toLowerCase();
 
-	const deleteTodo = (text) => {
-		const newTodo = todo.filter((d) => d.texto !== text);
-		saveTodos(newTodo);
-	};
+      return todoText.includes(serchText);
+    });
+  }
 
-    const addTodo = (text) => {
-        const newTodos = [...todo];
-        newTodos.push({
-            completado: false,
-            texto:text,
-        });
-        saveTodos(newTodos);
-    };
-    
+  const checkTodo = (text) => {
+    const newTodo = [...todo];
+    const indext = todo.findIndex((d) => d.texto === text);
+    newTodo[indext].completado = true;
+    saveTodos(newTodo);
+  };
 
-	let form = false;
+  const deleteTodo = (text) => {
+    const newTodo = todo.filter((d) => d.texto !== text);
+    saveTodos(newTodo);
+  };
 
-	return (
-		<TodoContext.Provider
-			value={{
-				loading,
-				error,
-				totalTodos,
-				completeTodos,
-				searchState,
-				setSearchState,
-				searchTodo,
-				addTodo,
-				deleteTodo,
-				openModal,
-                setAddState,
-                checkTodo,
-				setOpenModal,
-                addState
-			}}
-		>
-			{props.children}
-		</TodoContext.Provider>
-	);
+  const addTodo = (text) => {
+    const newTodos = [...todo];
+    newTodos.push({
+      completado: false,
+      texto: text,
+    });
+    saveTodos(newTodos);
+  };
+
+
+  let form = false;
+
+  return (
+    <TodoContext.Provider
+      value={{
+        loading,
+        error,
+        totalTodos,
+        completeTodos,
+        searchState,
+        setSearchState,
+        searchTodo,
+        addTodo,
+        deleteTodo,
+        openModal,
+        checkTodo,
+        setOpenModal,
+        
+      }}
+    >
+      {props.children}
+    </TodoContext.Provider>
+  );
 }
 
 export { TodoContext, TodoProvider };

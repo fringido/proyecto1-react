@@ -1,11 +1,18 @@
 .TodoCounter {
-    text-align   : center;
+    text-align: center;
+    text-size-adjust: auto;
     border-radius: 69px;
-    background   : #212121;
-    box-shadow   : 1.5px 1.5px 3px #0e0e0e, -1.5px -1.5px 3px rgb(95 94 94 / 25%), inset 0px 0px 0px #0e0e0e, inset 0px 0px 0px #5f5e5e;
-    color        : rgb(245, 245, 245);
-    padding      : 15px 5px;
-    margin       : 0.6rem;
-    width        : 100%;
+    background: #212121;
+    box-shadow: 1.5px 1.5px 3px #0e0e0e, -1.5px -1.5px 3px rgb(95 94 94 / 25%), inset 0px 0px 0px #0e0e0e, inset 0px 0px 0px #5f5e5e;
+    color: rgb(245, 245, 245);
+    padding: 1rem 0.9rem 1rem;
+    font-size: 1.5rem;
+    margin: 1rem 0 0.4rem;
 
+}
+
+.TodoCounter--loading{
+    background: #2a2a2a;
+    color: rgb(118 118 118);
+    cursor: progress;
 }

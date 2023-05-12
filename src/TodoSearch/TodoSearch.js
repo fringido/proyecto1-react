@@ -1,7 +1,7 @@
 import React from "react";
 import "./TodoSearch.css";
 
-function TodoSearch({ searchState, setSearchState }) {
+function TodoSearch({ searchState, setSearchState , loading}) {
     const onSearchValueChange = (event) => {
         setSearchState(event.target.value);
     };
@@ -14,6 +14,7 @@ function TodoSearch({ searchState, setSearchState }) {
             autocomplete="nope"
             value={searchState}
             onChange={onSearchValueChange}
+            disabled = {loading}
         />
     );
 }
